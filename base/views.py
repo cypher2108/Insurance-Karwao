@@ -18,12 +18,4 @@ def home(request):
         except:
             error = 'yes'
     x = {'error': error}
-    return render(request, 'base/home.html', x)
-
-
-def about(request):
-    return render(request, 'base/about.html')
-
-
-def contact(request):
-    return render(request, 'base/contact.html')
+    return render(request, 'base/main.html', x)

@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <div class="logo">
-        <h1>Insurence Karwao</h1>
+        <h1>Insurance Karwao</h1>
     </div>
 
     <ul id="nav-links-1">
@@ -13,8 +13,24 @@
     </ul>
 
     <ul id="nav-links-2">
-        <li><a href="#">login</a></li>
-        <p>|</p>
-        <li><a href="#">sign up</a></li>
+
+        {% if user.is_authenticated %}
+            <li><a href="#">Hi {{ user.first_name }}</a></li>
+            <p>|</p>
+            <li><a onclick="logout_message();" href="{% url 'logout' %}">Logout</a></li>
+            <script>
+                function logout_message() {
+                    confirm("Do you wish to Log Out?");
+                }
+            </script>
+
+        {% else %}
+            <li><a href="{% url 'sign-in' %}">login</a></li>
+            <p>|</p>
+            <li><a href="{% url 'user-register' %}">sign up</a></li>
+
+        {% endif %}
+
+
     </ul>
 </div>

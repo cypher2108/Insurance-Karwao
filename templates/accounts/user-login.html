@@ -1,0 +1,69 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In - Insurance Karwao</title>
+
+    {#  stylesheet  #}
+    <link rel="stylesheet" href="{% static '/css/accounts.css' %}">
+
+
+</head>
+<body>
+{% include 'base/navbar.html' %}
+<div class="main-container">
+    <div class="box-wrapper">
+        <div class="lef-wrapper">
+            <div class="upper-content">
+                <div class="title">
+                    <h1>SIGN IN</h1>
+                </div>
+                <div class="welcome-text">
+                    <p>Welcome back!</p>
+                </div>
+            </div>
+
+            <div class="lower-content">
+                <p>New to Insurance Karwao? <b><a href="{% url 'user-register'%}">Sign Up Free</a></b></p>
+            </div>
+        </div>
+
+        <div class="right-wrapper">
+            <div class="main-form">
+                <form action="" method="post" id="sign-in-form">
+                    {% csrf_token %}
+
+                    <label>Username</label>
+                    <input required class="input-field" type="text" name="username" placeholder="Email Address">
+
+                    <label>Password</label>
+                    <input required class="input-field" type="password" name="password" placeholder="Password">
+
+                    <input id="sign-in-btn" type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% ifequal error "no" %}
+    <script>
+        alert('Logged in Successful');
+        window.location = ('{% url 'home' %}');
+    </script>
+{% endifequal %}
+
+
+{% ifequal error "yes" %}
+    <script>
+        alert('Invalid Login Credentials,Try Again');
+    </script>
+{% endifequal %}
+
+
+</body>
+</html>
