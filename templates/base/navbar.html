@@ -18,7 +18,7 @@
             <li><a href="#">Hi {{ user.first_name }}</a></li>
 
             <p>|</p>
-            <li><a href="#">Shop</a></li>
+            <li><a href="{% url 'features' %}">Shop</a></li>
             <p>|</p>
             <li><a onclick="logout_message();" href="{% url 'logout' %}">Logout</a></li>
             <script>

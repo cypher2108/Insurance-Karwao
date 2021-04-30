@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My insurances</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+</head>
+<body>
+
+{% include 'base/navbar.html' %}
+
+
+<div class="shopping-area">
+
+    <div class="main-card">
+        {% for i in insurances %}
+
+            {% if user.username == i.username.username %}
+                <div class="card">
+                    <div class="product-img">
+
+                        <div class="image">
+                            <img src="{{ i.serial_number.smartphone_img.url }}" alt=" {{ i }}">
+                        </div>
+                        <div class="product-name">
+                            <p id="title">{{ i.serial_number.brand_name }} {{ i.serial_number.model_name }}</p>
+                            <div class="details">
+                                <p>color: <b>{{ i.serial_number.color }}</b></p>
+                                <p>Memory: <b>{{ i.serial_number.memory }} Gb</b></p>
+                            </div>
+                            <div class="price">
+                                <p>${{ i.serial_number.price }}</p>
+                            </div>
+
+                            <div class="claims">
+                                <ul>
+                                    <form action="{% url 'file-claim' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" name="purchase-id" value="{{ i.id }}" style="display:none;">
+                                        <button id="claim-btn" type="submit">File new Claim</button>
+                                    </form>
+
+                                    <form action="{% url 'view_claim' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="number" name="purchase-id" value="{{ i.id }}" style="display:none;">
+                                        <button id="claim-btn" type="submit">view Claim</button>
+                                    </form>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

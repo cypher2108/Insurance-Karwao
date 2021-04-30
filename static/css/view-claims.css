@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.title-wrapper {
+    background-color: #221e1f;
+}
+
+
+.title-wrapper > h1 {
+    width: 1200px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.card-wrapper {
+    padding: 10px;
+    width: 1800px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 0 15px;
+    box-shadow: 0 4px 40px rgb(0 0 0 /35%);
+    border-radius: 10px;
+}
+
+.subject {
+    display: flex;
+}
+
+.subject > img {
+    width: 100px;
+    height: auto;
+    padding: 10px;
+}
+
+.message {
+    margin-left: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.message > h1 {
+    margin-top: 10px;
+    color: #d17c19;
+}
+
+#description {
+    margin-top: 30px;
+    width: 1200px;
+}
+
+.theft {
+    display: flex;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+#theft-heading {
+    margin-top: 5px;
+}
+
+#theft-text {
+    padding-left: 10px;
+    color: #d17c19;
+    font-size: 22px;
+}
+
+.accepted {
+    margin-top: 5px;
+    display: flex;
+}
+
+#status-accepted {
+    margin-left: 15px;
+    background-color: green;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+#status-pending{
+    margin-left: 15px;
+    background-color: red;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+    padding: 4px;
+}

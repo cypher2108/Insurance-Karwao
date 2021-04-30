@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
+
+
+.main-cards{
+    margin-top: 200px;
+    padding: 50px;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{
+    background-color: #d17c19;
+    margin: 20px;
+    width: 400px;
+    padding: 100px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+}
+
+.content{
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+}
+
+.content > p{
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card:hover{
+    background-color: #221e1f;
+    color: white;
+
+}

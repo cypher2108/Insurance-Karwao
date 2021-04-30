@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File New Claim</title>
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/claim.css' %}">
+</head>
+<body>
+{% include 'base/navbar.html' %}
+
+<div class="claim-title">
+    <h1>File New Calim</h1>
+    <hr>
+</div>
+
+<div class="contact-right">
+    <form action="" method="post" id="contact-form">
+        {% csrf_token %}
+        <input type="text" value="{{ purchased_id }}" name="myid" style="display: none">
+        <label>Subject</label>
+        <input required class="input-field" type="text" name="subject">
+
+        <label>Theft</label>
+        <input required class="input-field" type="text" name="theft" placeholder="Leave Blank for No">
+
+        <label>Message</label>
+        <textarea required class="input-field" name="message"></textarea>
+
+        <input id="submit-btn" type="submit" value="Send">
+    </form>
+</div>
+
+{% ifequal error "no" %}
+    <script>
+        alert("Your claim has been sent successfully please wait we'll reach you!");
+        window.location = ('{% url 'insurance' %}');
+    </script>
+{% endifequal %}
+
+
+</body>
+</html>

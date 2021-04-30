@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop with us -Insurance Karwao</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+
+    {#  fontawoesome cdn#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+{% include 'base/navbar.html' %}
+
+
+<div class="main-cards">
+    <div class="cards">
+
+        <div class="card" onclick="window.location.href = '{% url 'auto-mobile-shop' %}'">
+            <div class="content">
+                <i class="fas fa-biking fa-5x"></i>
+                <p>Auto-Mobiles</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = '{% url 'mobile-shop' %}'">
+            <div class="content">
+                <i class="fas fa-mobile fa-5x"></i>
+                <p>Mobiles</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = '{% url 'laptop-shop' %}'">
+            <div class="content">
+                <i class="fas fa-laptop fa-5x"></i>
+                <p>Laptop</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

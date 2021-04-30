@@ -1,0 +1,143 @@
+.shop-title {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Catamaran', sans-serif;
+    background-color: #221e1f;
+}
+
+.title {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #d17c19;
+    margin-bottom: 10px;
+}
+
+.shop-nav-links {
+    margin-top: 20px;
+    color: white;
+}
+
+.shop-nav-links > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-nav-links > ul > li {
+    margin: 0 25px;
+    list-style: none;
+}
+
+.shop-nav-links > ul > li > a {
+    text-decoration: none;
+    color: white;
+    transition: all ease-in 0.3s;
+    font-size: 18px;
+}
+
+.shop-nav-links > ul > li > a:hover {
+    font-size: 20px;
+}
+
+.shopping-area {
+
+}
+
+.main-card {
+    background-color: white;
+}
+
+.card {
+    margin: 25px;
+    padding: 20px 0;
+    box-shadow: 0 4px 40px rgb(0 0 0 /25%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-img {
+    margin-left: 30px;
+    display: flex;
+}
+
+.image {
+    box-shadow: 0 4px 40px rgb(0 0 0 /25%);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.image > img {
+    width: 200px;
+}
+
+.product-name {
+    margin-left: 20px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+#title {
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.details {
+    margin-top: 15px;
+}
+
+.details > p {
+    font-size: 18px;
+}
+
+.price {
+    margin: 25px 0;
+    margin-left: 5px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #d17c19;
+}
+
+.buy-btn {
+    align-self: center;
+    margin-right: 50px;
+    padding: 25px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.buy-btn >form > button {
+    width: 100%;
+    padding: 20px 40px;
+    color: #fff;
+    background-color: #d17c19;
+    border: none;
+    font-size: 24px;
+}
+
+.claims > ul{
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.claims > ul >  form> li> a{
+    text-decoration: none;
+    color: #d17c19;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all ease-in 0.3s;
+}
+
+.claims > ul > form> li> a:hover{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#claim-btn{
+    width: 140px;
+    height: 40px;
+    color: #fff;
+    background-color: #d17c19;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 20px;
+}

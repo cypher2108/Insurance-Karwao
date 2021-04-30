@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy with us</title>
+    {#  stylesheet  #}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+
+    {#  fontawoesome cdn#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+{% include 'base/navbar.html' %}
+
+<div class="main-cards">
+    <div class="cards">
+
+        <div class="card" onclick="window.location.href = '{% url 'insurance' %}'">
+            <div class="content">
+                <i class="fas fa-hands-helping fa-5x"></i>
+                <p>Insurance</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = '{% url 'shop' %}'">
+            <div class="content">
+                <i class="fas fa-shopping-basket fa-5x"></i>
+                <p>Shop</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = '{% url 'home' %}'">
+            <div class="content">
+                <i class="fas fa-tools fa-5x"></i>
+                <p>Repair</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = '{% url 'home' %}'">
+            <div class="content">
+                <i class="fas fa-user-friends fa-5x"></i>
+                <p>Police</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
