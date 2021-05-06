@@ -1,0 +1,80 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Automobile - Insurance Karwao</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+
+    {#  fontawoesome cdn#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+{% include 'base/navbar.html' %}
+
+
+<div class="main-container">
+    <div class="shop-title">
+        <div class="title">
+            <h1>Automobile Shop</h1>
+        </div>
+
+        <div class="shop-nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">something-1</a></li>
+                <li><a href="#">something-2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="shopping-area">
+
+        <div class="main-card">
+            {% for i in automobiles %}
+                <div class="card">
+                    <div class="product-img">
+
+                        <div class="image">
+                            <img src="{{ i.automobile_img.url }}" alt=" {{ i }}">
+                        </div>
+                        <div class="product-name">
+                            <p id="title">{{ i.manufacturer }} {{ i.model_name }}</p>
+                            <div class="details">
+                                <p>color: <b>{{ i.color }}</b></p>
+                                <p>Memory: <b>{{ i.mileage }} Km</b></p>
+                            </div>
+                            <div class="price">
+                                <p>${{ i.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <form action="{% url 'purchase-automobile' %}" method="POST">
+                            {% csrf_token %}
+                            <input style="display: none" type="text" name="snumber" value="{{ i.serial_number }}">
+                            <button type="submit" onclick="purchase_item();">Buy Now</button>
+                        </form>
+                        <script>
+                            function purchase_item() {
+                                confirm("you wish to purchase?");
+                                window.location = ("{% url 'purchase-automobile' %}");
+                            }
+                        </script>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

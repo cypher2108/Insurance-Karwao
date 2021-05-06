@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base',
     'accounts',
     'shop',
+    'repair'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

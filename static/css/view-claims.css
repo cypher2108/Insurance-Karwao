@@ -31,7 +31,7 @@
 }
 
 .subject > img {
-    width: 100px;
+    width: 200px;
     height: auto;
     padding: 10px;
 }
@@ -70,6 +70,7 @@
 .accepted {
     margin-top: 5px;
     display: flex;
+    margin-bottom: 10px;
 }
 
 #status-accepted {
@@ -85,6 +86,18 @@
 }
 
 #status-pending{
+    margin-left: 15px;
+    background-color: orange;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+#status-rejected{
     margin-left: 15px;
     background-color: red;
     color: white;

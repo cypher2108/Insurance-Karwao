@@ -29,19 +29,25 @@
                         <h1>{{ i.subject }}</h1>
                         <p id="description">Description: <b>{{ i.message }}</b></p>
                         <div class="theft">
-                            <p id="theft-heading" >Theft:</p>
-                            <p id="theft-text" ><b>{{ i.theft }}</b></p>
+                            <p id="theft-heading">Theft:</p>
+                            <p id="theft-text"><b>{{ i.theft }}</b></p>
                         </div>
 
 
                         <div class="accepted">
                             <h2>status: </h2>
 
-                            {% if i.is_accepted %}
-                                <p id="status-accepted">Accepted</p>
+                            {% if i.is_rejected %}
+                                <p id="status-rejected">Rejected</p>
                             {% else %}
-                                <p id="status-pending">Pending</pid>
+                                {% if i.is_accepted %}
+                                    <p id="status-accepted">Accepted</p>
+                                {% else %}
+                                    <p id="status-pending">Pending</p>
+                                {% endif %}
                             {% endif %}
+
+
                         </div>
 
 

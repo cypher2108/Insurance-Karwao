@@ -18,7 +18,7 @@
 <div class="shopping-area">
 
     <div class="main-card">
-        {% for i in insurances %}
+        {% for i in insurances_smartphones %}
 
             {% if user.username == i.username.username %}
                 <div class="card">
@@ -47,7 +47,8 @@
 
                                     <form action="{% url 'view_claim' %}" method="post">
                                         {% csrf_token %}
-                                        <input type="number" name="purchase-id" value="{{ i.id }}" style="display:none;">
+                                        <input type="number" name="purchase-id" value="{{ i.id }}"
+                                               style="display:none;">
                                         <button id="claim-btn" type="submit">view Claim</button>
                                     </form>
 
@@ -60,6 +61,96 @@
             {% endif %}
 
         {% endfor %}
+
+        {% for i in insurance_laptops %}
+
+            {% if user.username == i.username.username %}
+                <div class="card">
+                    <div class="product-img">
+
+                        <div class="image">
+                            <img src="{{ i.serial_number.laptop_img.url }}" alt=" {{ i }}">
+                        </div>
+                        <div class="product-name">
+                            <p id="title">{{ i.serial_number.brand_name }} {{ i.serial_number.model_name }}</p>
+                            <div class="details">
+                                <p>color: <b>{{ i.serial_number.color }}</b></p>
+                                <p>Memory: <b>{{ i.serial_number.memory }} Gb</b></p>
+                                <p>Ram: <b>{{ i.serial_number.ram }} Gb</b></p>
+                            </div>
+                            <div class="price">
+                                <p>${{ i.serial_number.price }}</p>
+                            </div>
+
+                            <div class="claims">
+                                <ul>
+                                    <form action="{% url 'file-claim-laptop' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" name="purchase-id" value="{{ i.id }}" style="display:none;">
+                                        <button id="claim-btn" type="submit">File new Claim</button>
+                                    </form>
+
+                                    <form action="{% url 'view_claim-laptop' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="number" name="purchase-id" value="{{ i.id }}"
+                                               style="display:none;">
+                                        <button id="claim-btn" type="submit">view Claim</button>
+                                    </form>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
+        {% for i in insurance_automobiles %}
+
+            {% if user.username == i.username.username %}
+                <div class="card">
+                    <div class="product-img">
+
+                        <div class="image">
+                            <img src="{{ i.serial_number.automobile_img.url }}" alt=" {{ i }}">
+                        </div>
+                        <div class="product-name">
+                            <p id="title">{{ i.serial_number.manufacturer }} {{ i.serial_number.model_name }}</p>
+                            <div class="details">
+                                <p>color: <b>{{ i.serial_number.color }}</b></p>
+                                <p>Mileage: <b>{{ i.serial_number.mileage }} Km</b></p>
+                            </div>
+                            <div class="price">
+                                <p>${{ i.serial_number.price }}</p>
+                            </div>
+
+                            <div class="claims">
+                                <ul>
+                                    <form action="{% url 'file-claim-automobile' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" name="purchase-id" value="{{ i.id }}" style="display:none;">
+                                        <button id="claim-btn" type="submit">File new Claim</button>
+                                    </form>
+
+                                    <form action="{% url 'view_claim-automobile' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="number" name="purchase-id" value="{{ i.id }}"
+                                               style="display:none;">
+                                        <button id="claim-btn" type="submit">view Claim</button>
+                                    </form>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
     </div>
 </div>
 </body>
