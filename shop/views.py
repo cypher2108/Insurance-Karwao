@@ -23,11 +23,25 @@ def shop(request):
 
 
 def repair(request):
-    return render(request, 'shop/repair.html')
+    claim_smartphones = Claim.objects.all()
+    claim_laptops = ClaimLaptop.objects.all()
+    claim_automobiles = ClaimAutomobile.objects.all()
+
+    c = {'claim_smartphones': claim_smartphones, 'claim_laptops': claim_laptops,
+         'claim_automobiles': claim_automobiles}
+
+    return render(request, 'shop/repair.html', c)
 
 
 def police(request):
-    return render(request, 'shop/police.html')
+    claim_smartphones = Claim.objects.all()
+    claim_laptops = ClaimLaptop.objects.all()
+    claim_automobiles = ClaimAutomobile.objects.all()
+
+    c = {'claim_smartphones': claim_smartphones, 'claim_laptops': claim_laptops,
+         'claim_automobiles': claim_automobiles}
+
+    return render(request, 'shop/police.html', c)
 
 
 def auto_mobile(request):
@@ -170,6 +184,7 @@ def view_claim_laptop(request):
     claims = ClaimLaptop.objects.all()
     x = {'claims': claims, 'purchase_id': purchase_id}
     return render(request, 'insurance/view-claim-laptop.html', x)
+
 
 def file_claim_automobile(request):
     error = "no"

@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View My Claims</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view-claims.css' %}">
+</head>
+<body>
+
+{% include 'base/navbar.html' %}
+
+<div class="title-wrapper">
+    <h1>My claims</h1>
+</div>
+
+{% for i in claims %}
+    {% ifequal i.owner.id purchase_id %}
+        <div class="card-wrapper">
+            <div class="card">
+
+                <div class="subject">
+                    <img src="{{ i.owner.serial_number.laptop_img.url }}" alt="image">
+                    <div class="message">
+                        <h1>{{ i.subject }}</h1>
+                        <p id="description">Description: <b>{{ i.message }}</b></p>
+                        <div class="theft">
+                            <p id="theft-heading">Theft:</p>
+                            <p id="theft-text"><b>{{ i.theft }}</b></p>
+                        </div>
+
+
+                        <div class="accepted">
+                            <h2>status: </h2>
+
+                            {% if i.is_rejected %}
+                                <p id="status-rejected">Rejected</p>
+                            {% else %}
+                                {% if i.is_accepted %}
+                                    <p id="status-accepted">Accepted</p>
+                                {% else %}
+                                    <p id="status-pending">Pending</p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endifequal %}
+{% endfor %}
+
+
+</body>
+</html>

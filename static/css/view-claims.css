@@ -108,3 +108,10 @@
     border-radius: 5px;
     padding: 4px;
 }
+
+#repair-status{
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    margin-left: 10px;
+    margin-top: 2px;
+}

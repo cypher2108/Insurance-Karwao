@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Purchase</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+
+{% include 'base/navbar.html' %}
+<div class="main-wrapper">
+    <div class="order-summary">
+        <h1>Order Summary</h1>
+        <hr>
+    </div>
+    <div class="details">
+        <div class="ord-name">
+            <h1>{{ laptop.brand_name }} {{ laptop.model_name }}</h1>
+        </div>
+
+        <div class="other-details">
+            <ul>
+                <li>{{ laptop.color }}</li>
+                <li>{{ laptop.memory }}</li>
+                <li>{{ laptop.ram }}</li>
+                <li>{{ laptop.serial_number }}</li>
+            </ul>
+            <hr>
+        </div>
+        <div class="pricing">
+            <h1>Total Pricing</h1>
+            <div class="main-price">
+                <h2>Your Product Price: {{ laptop.price }}</h2>
+                <h2>Insurance Price : {{ insurance_price }}</h2>
+                <p>Insurance price is the 30% of the overall price of your purchased Smartphone.</p>
+            </div>
+
+            <div class="payble-price">
+                <h1>Payble Price: {{ insurance_price }}</h1>
+            </div>
+        </div>
+
+        <div class="pay">
+            <form action="{% url 'buy-laptop' %}" method="post">
+                {% csrf_token %}
+                <input style="display: none" type="text" value="{{ laptop.serial_number }}" name="serial-number">
+                <a href="{% url 'buy-laptop' %}">
+                    <button type="submit" onclick="pay_now()">Pay now</button>
+                </a>
+            </form>
+
+
+            <script>
+                function pay_now() {
+                    let y = confirm("you wish to purchase?");
+                    if (y) {
+                        window.location = ("{% url 'home' %}");
+                    }
+
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+{% ifequal error "no" %}
+    <script>
+        alert("Hurray! Payment successful!");
+        window.location = ('{% url 'features' %}');
+    </script>
+{% endifequal %}
+
+
+{% ifequal error "yes" %}
+    <script>
+        alert('Sorry, Something went Wrong Bitch!');
+        window.location = ('{% url 'home' %}');
+    </script>
+{% endifequal %}
+
+</body>
+</html>

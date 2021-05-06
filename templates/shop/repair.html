@@ -1,0 +1,121 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Repair - Insurance Karwao</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view-claims.css' %}">
+</head>
+<body>
+
+{% include 'base/navbar.html' %}
+
+<div class="title-wrapper">
+    <h1>My Repairs</h1>
+</div>
+
+{% for i in claim_smartphones %}
+    {% ifequal i.owner.username.username user.username %}
+        {% if i.is_accepted and i.is_repairable %}
+            <div class="card-wrapper">
+                <div class="card">
+
+                    <div class="subject">
+                        <img src="{{ i.owner.serial_number.smartphone_img.url }}" alt="image">
+                        <div class="message">
+                            <h1>{{ i.subject }}</h1>
+                            <p id="description">Description: <b>{{ i.message }}</b></p>
+{#                            <div class="theft">#}
+{#                                <p id="theft-heading">Theft:</p>#}
+{#                                <p id="theft-text"><b>{{ i.theft }}</b></p>#}
+{#                            </div>#}
+
+
+                            <div class="accepted">
+                                <h2>status: </h2>
+                                <p id="repair-status" >Your Item is eligible for repair, we'll send our person to pick up your product and get back to you soon.</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endifequal %}
+{% endfor %}
+
+{% for i in claim_laptops %}
+    {% ifequal i.owner.username.username user.username %}
+        {% if i.is_accepted and i.is_repairable %}
+            <div class="card-wrapper">
+                <div class="card">
+
+                    <div class="subject">
+                        <img src="{{ i.owner.serial_number.laptop_img.url }}" alt="image">
+                        <div class="message">
+                            <h1>{{ i.subject }}</h1>
+                            <p id="description">Description: <b>{{ i.message }}</b></p>
+{#                            <div class="theft">#}
+{#                                <p id="theft-heading">Theft:</p>#}
+{#                                <p id="theft-text"><b>{{ i.theft }}</b></p>#}
+{#                            </div>#}
+
+
+                            <div class="accepted">
+                                <h2>status: </h2>
+
+                                <p id="repair-status" >Your Item is eligible for repair, we'll send our person to pick up your product and get back to you soon.</p>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    {% endifequal %}
+{% endfor %}
+
+{% for i in claim_automobiles %}
+    {% ifequal i.owner.username.username user.username %}
+        {% if i.is_accepted and i.is_repairable %}
+            <div class="card-wrapper">
+                <div class="card">
+
+                    <div class="subject">
+                        <img src="{{ i.owner.serial_number.automobile_img.url }}" alt="image">
+                        <div class="message">
+                            <h1>{{ i.subject }}</h1>
+                            <p id="description">Description: <b>{{ i.message }}</b></p>
+{#                            <div class="theft">#}
+{#                                <p id="theft-heading">Theft:</p>#}
+{#                                <p id="theft-text"><b>{{ i.theft }}</b></p>#}
+{#                            </div>#}
+
+
+                            <div class="accepted">
+                                <h2>status: </h2>
+
+                                <p id="repair-status" >Your Item is eligible for repair, we'll send our person to pick up your product and get back to you soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endifequal %}
+{% endfor %}
+
+
+</body>
+</html>
